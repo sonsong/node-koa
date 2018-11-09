@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MarkDown在线</title>
+    <!-- <link rel="stylesheet" href="css/reset-min.css"> -->
+    <link rel="stylesheet" href="css/md-edit.css">
+</head>
+<body>
+    <div class="md-edit-wrap">
+        <div class="edit">
+            <form action="/submitArtcle" method="POST">
+                <textarea name="editText" id="editText" placeholder="仅支持md格式语法"></textarea>
+                <input type="submit" value="提交" class="submit-btn">
+            </form>
+        </div>
+        <div class="parse"></div>
+    </div>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"></script>
+    <script src="/js/parseMd.js"></script>
+    <script>
+        $(()=>{
+            var parser = new HyperDown();
+            $("#editText").bind("keyup", () =>{
+                var html = parser.makeHtml($('#editText').val());
+                $('.parse').html(html);
+            });        
+        })
+    </script>
+</body>
+</html>

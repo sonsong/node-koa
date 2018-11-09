@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>EditorMD</title>
+    <link type="text/css" href="/editor.md/lib/codemirror/codemirror.min.css">
+    <link rel="stylesheet" href="/editor.md/css/editormd.css">
+</head>
+
+<body>
+    <div id="layout">
+    </div>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="/editor.md/editormd.min.js"></script>
+    <script type="text/javascript">
+        $(() => {
+
+            $("#layout").append("<div id=\"editormd\"></div>");
+
+            editormd("editormd", {
+                width: "100%",
+                height: 700,
+                emoji: true,
+                //theme: 'dark',
+                //markdown: "### 使用markdowm语法编写",
+                path: 'editor.md/lib/'
+            });
+        });
+    </script>
+</body>
+
+</html>
